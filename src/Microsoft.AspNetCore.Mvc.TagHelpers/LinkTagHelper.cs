@@ -288,7 +288,7 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
                 }
             }
 
-            if (mode == Mode.Fallback && HasRelStylesheet(output.Attributes))
+            if (mode == Mode.Fallback && HasStyleSheetLinkType(output.Attributes))
             {
                 string resolvedUrl;
                 if (TryResolveUrl(FallbackHref, resolvedUrl: out resolvedUrl))
@@ -383,7 +383,7 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
             builder.AppendHtml("\");</script>");
         }
 
-        private bool HasRelStylesheet(TagHelperAttributeList attributes)
+        private bool HasStyleSheetLinkType(TagHelperAttributeList attributes)
         {
             TagHelperAttribute relAttribute;
             if (!attributes.TryGetAttribute(RelAttributeName, out relAttribute) ||
